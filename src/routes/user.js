@@ -91,7 +91,7 @@ module.exports.login = (req, res) => {
     else
         User.findOne({email:email})
             .exec()
-            .then(user => {
+            .then(user => {            
                 if (user) {
                     user = JSON.parse(JSON.stringify(user));
                     jwt.sign(user, config.jwt.secret, config.jwt.options, (err, token) => {
